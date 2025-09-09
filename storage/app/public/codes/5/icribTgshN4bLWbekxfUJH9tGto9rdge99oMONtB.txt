@@ -1,0 +1,2142 @@
+-- MySQL dump 10.13  Distrib 8.0.35, for Linux (x86_64)
+--
+-- Host: localhost    Database: pms
+-- ------------------------------------------------------
+-- Server version	8.0.35
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `areas`
+--
+
+DROP TABLE IF EXISTS `areas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `areas` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned NOT NULL,
+  `supervision_area` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `areas_user_id_index` (`user_id`),
+  CONSTRAINT `areas_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `areas`
+--
+
+LOCK TABLES `areas` WRITE;
+/*!40000 ALTER TABLE `areas` DISABLE KEYS */;
+INSERT INTO `areas` VALUES (1,3,'Artificial Intelligence','2024-04-10 06:10:16','2024-04-10 06:10:16'),(2,3,'Machine Learning','2024-04-10 06:10:23','2024-04-10 06:10:23'),(3,33,'Expert systems','2024-04-10 08:27:23','2024-04-10 08:27:23'),(4,33,'Project Management','2024-04-10 08:27:32','2024-04-10 08:27:32');
+/*!40000 ALTER TABLE `areas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `chapterones`
+--
+
+DROP TABLE IF EXISTS `chapterones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chapterones` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `documentation_id` int unsigned NOT NULL,
+  `file` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `comment` varchar(2000) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `status` tinyint NOT NULL DEFAULT '0',
+  `completion` tinyint NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `chapterones_documentation_id_index` (`documentation_id`),
+  CONSTRAINT `chapterones_documentation_id_foreign` FOREIGN KEY (`documentation_id`) REFERENCES `documentations` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chapterones`
+--
+
+LOCK TABLES `chapterones` WRITE;
+/*!40000 ALTER TABLE `chapterones` DISABLE KEYS */;
+INSERT INTO `chapterones` VALUES (1,1,'chapterOne.pdf','Completed',1,1,'2024-04-10 06:59:42','2024-04-10 06:59:57'),(2,2,'chapterOne.pdf','Proceed with chapter two',1,1,'2024-04-10 08:44:29','2024-04-10 08:45:25');
+/*!40000 ALTER TABLE `chapterones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `chapterthrees`
+--
+
+DROP TABLE IF EXISTS `chapterthrees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chapterthrees` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `documentation_id` int unsigned NOT NULL,
+  `file` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `comment` varchar(2000) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `status` tinyint NOT NULL DEFAULT '0',
+  `completion` tinyint NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `chapterthrees_documentation_id_index` (`documentation_id`),
+  CONSTRAINT `chapterthrees_documentation_id_foreign` FOREIGN KEY (`documentation_id`) REFERENCES `documentations` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chapterthrees`
+--
+
+LOCK TABLES `chapterthrees` WRITE;
+/*!40000 ALTER TABLE `chapterthrees` DISABLE KEYS */;
+INSERT INTO `chapterthrees` VALUES (1,1,'chapterThree.pdf','COmpeted',1,1,'2024-04-10 07:02:20','2024-04-10 07:02:33'),(2,2,'chapterThree.pdf','Please proceed',1,1,'2024-04-10 08:46:21','2024-04-10 08:47:09');
+/*!40000 ALTER TABLE `chapterthrees` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `chaptertwos`
+--
+
+DROP TABLE IF EXISTS `chaptertwos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chaptertwos` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `documentation_id` int unsigned NOT NULL,
+  `file` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `comment` varchar(2000) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `status` tinyint NOT NULL DEFAULT '0',
+  `completion` tinyint NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `chaptertwos_documentation_id_index` (`documentation_id`),
+  CONSTRAINT `chaptertwos_documentation_id_foreign` FOREIGN KEY (`documentation_id`) REFERENCES `documentations` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chaptertwos`
+--
+
+LOCK TABLES `chaptertwos` WRITE;
+/*!40000 ALTER TABLE `chaptertwos` DISABLE KEYS */;
+INSERT INTO `chaptertwos` VALUES (1,1,'chapterTwo.pdf','Make the below changes',1,2,'2024-04-10 07:00:34','2024-04-10 07:02:02'),(2,2,'chapterTwo.pdf','Proceed',1,1,'2024-04-10 08:45:48','2024-04-10 08:46:02');
+/*!40000 ALTER TABLE `chaptertwos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `codes`
+--
+
+DROP TABLE IF EXISTS `codes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `codes` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `proposal_id` int unsigned NOT NULL,
+  `filename` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `hashname` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `size` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `codes_proposal_id_foreign` (`proposal_id`),
+  CONSTRAINT `codes_proposal_id_foreign` FOREIGN KEY (`proposal_id`) REFERENCES `proposals` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `codes`
+--
+
+LOCK TABLES `codes` WRITE;
+/*!40000 ALTER TABLE `codes` DISABLE KEYS */;
+INSERT INTO `codes` VALUES (1,2,'Progress Monitoring system - Idea.docx','CryGeJGM1iTQIGaC1T0JFO0wJ5tFlEOFENOHDcXv.docx','16627','2024-04-10 06:58:50','2024-04-10 06:58:50'),(2,2,'PMS Final documentation.docx','m1KH00aapTARnxug2Ui82pYbSIsibWC62xQcFUo8.docx','1484057','2024-04-10 06:58:50','2024-04-10 06:58:50'),(3,2,'Ian Madara project log.pdf','8ui2yardxOWDhoYJTPDmhWSKc5jvbVNlIHJzjRaU.pdf','3162','2024-04-10 06:58:50','2024-04-10 06:58:50'),(4,3,'RFQ- Toners.pdf','RDE03mmRJm2XpVbTQzTyhlMwgEDNCZrhT2grc25z.pdf','483883','2024-04-10 08:43:51','2024-04-10 08:43:51'),(5,3,'RFP - V3.pdf','Hnnscr9N1xstkxrO9KNeClXrT65hZSsShcxrr8r2.pdf','534420','2024-04-10 08:43:51','2024-04-10 08:43:51'),(6,3,'Ian Madara project log.pdf','H8Hq2OJerGU1NzNNY3MFsdA67CuoxgmdqXThAKKB.pdf','3162','2024-04-10 08:43:51','2024-04-10 08:43:51');
+/*!40000 ALTER TABLE `codes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `conversation`
+--
+
+DROP TABLE IF EXISTS `conversation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `conversation` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_one` int unsigned NOT NULL,
+  `user_two` int unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `conversation_user_one_foreign` (`user_one`),
+  KEY `conversation_user_two_foreign` (`user_two`),
+  CONSTRAINT `conversation_user_one_foreign` FOREIGN KEY (`user_one`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `conversation_user_two_foreign` FOREIGN KEY (`user_two`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `conversation`
+--
+
+LOCK TABLES `conversation` WRITE;
+/*!40000 ALTER TABLE `conversation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `conversation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `conversation_reply`
+--
+
+DROP TABLE IF EXISTS `conversation_reply`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `conversation_reply` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `conversation_id` int unsigned NOT NULL,
+  `reply` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `user_id` int unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `conversation_reply_conversation_id_foreign` (`conversation_id`),
+  KEY `conversation_reply_user_id_foreign` (`user_id`),
+  CONSTRAINT `conversation_reply_conversation_id_foreign` FOREIGN KEY (`conversation_id`) REFERENCES `conversation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `conversation_reply_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `conversation_reply`
+--
+
+LOCK TABLES `conversation_reply` WRITE;
+/*!40000 ALTER TABLE `conversation_reply` DISABLE KEYS */;
+/*!40000 ALTER TABLE `conversation_reply` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courses`
+--
+
+DROP TABLE IF EXISTS `courses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courses` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `faculty_id` int unsigned NOT NULL,
+  `course` varchar(100) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `courses_course_unique` (`course`),
+  KEY `courses_faculty_id_index` (`faculty_id`),
+  CONSTRAINT `courses_faculty_id_foreign` FOREIGN KEY (`faculty_id`) REFERENCES `faculties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courses`
+--
+
+LOCK TABLES `courses` WRITE;
+/*!40000 ALTER TABLE `courses` DISABLE KEYS */;
+INSERT INTO `courses` VALUES (1,1,'Computer Science','2024-04-09 12:58:17','2024-04-09 12:58:17'),(2,1,'Software Engineering','2024-04-09 12:58:17','2024-04-09 12:58:17'),(3,1,'Database Management Systems','2024-04-09 12:58:17','2024-04-09 12:58:17'),(4,1,'Computer Networks','2024-04-09 12:58:17','2024-04-09 12:58:17'),(5,1,'Operating Systems','2024-04-09 12:58:17','2024-04-09 12:58:17'),(6,1,'Artificial Intelligence','2024-04-09 12:58:17','2024-04-09 12:58:17'),(7,1,'Cybersecurity','2024-04-09 12:58:17','2024-04-09 12:58:17'),(8,1,'Web Development','2024-04-09 12:58:17','2024-04-09 12:58:17'),(9,1,'Human-Computer Interaction (HCI)','2024-04-09 12:58:17','2024-04-09 12:58:17'),(10,1,'Computer Graphics','2024-04-09 12:58:17','2024-04-09 12:58:17'),(11,1,'Data Science','2024-04-09 12:58:17','2024-04-09 12:58:17'),(12,2,'Introduction to Literature','2024-04-09 12:58:17','2024-04-09 12:58:17'),(13,2,'History of Western Civilization','2024-04-09 12:58:17','2024-04-09 12:58:17'),(14,2,'Philosophy of Mind and Language','2024-04-09 12:58:17','2024-04-09 12:58:17'),(15,3,'General Biology','2024-04-09 12:58:17','2024-04-09 12:58:17'),(16,3,'Chemistry: Principles and Applications','2024-04-09 12:58:17','2024-04-09 12:58:17'),(17,3,'Calculus for the Life Sciences','2024-04-09 12:58:17','2024-04-09 12:58:17'),(18,4,'Introduction to Psychology','2024-04-09 12:58:17','2024-04-09 12:58:17'),(19,4,'Principles of Sociology','2024-04-09 12:58:17','2024-04-09 12:58:17'),(20,4,'Introduction to Political Science','2024-04-09 12:58:17','2024-04-09 12:58:17'),(21,5,'Introduction to Computer Science','2024-04-09 12:58:17','2024-04-09 12:58:17'),(22,5,'Engineering Mechanics: Statics','2024-04-09 12:58:17','2024-04-09 12:58:17'),(23,5,'Electrical Circuits','2024-04-09 12:58:17','2024-04-09 12:58:17'),(24,6,'Principles of Management','2024-04-09 12:58:17','2024-04-09 12:58:17'),(25,6,'Financial Accounting','2024-04-09 12:58:17','2024-04-09 12:58:17'),(26,6,'Marketing Principles','2024-04-09 12:58:17','2024-04-09 12:58:17'),(27,7,'Foundations of Education','2024-04-09 12:58:17','2024-04-09 12:58:17'),(28,7,'Curriculum Development and Instruction','2024-04-09 12:58:17','2024-04-09 12:58:17'),(29,7,'Educational Psychology','2024-04-09 12:58:17','2024-04-09 12:58:17'),(30,8,'Introduction to Law','2024-04-09 12:58:17','2024-04-09 12:58:17'),(31,8,'Constitutional Law','2024-04-09 12:58:17','2024-04-09 12:58:17'),(32,8,'Criminal Law','2024-04-09 12:58:17','2024-04-09 12:58:17'),(33,9,'Human Anatomy','2024-04-09 12:58:17','2024-04-09 12:58:17'),(34,9,'Physiology','2024-04-09 12:58:17','2024-04-09 12:58:17'),(35,9,'Biochemistry','2024-04-09 12:58:17','2024-04-09 12:58:17'),(36,10,'Pharmaceutical Chemistry','2024-04-09 12:58:17','2024-04-09 12:58:17'),(37,10,'Pharmacology','2024-04-09 12:58:17','2024-04-09 12:58:17'),(38,10,'Pharmaceutics','2024-04-09 12:58:17','2024-04-09 12:58:17'),(39,11,'Introduction to Public Health','2024-04-09 12:58:17','2024-04-09 12:58:17'),(40,11,'Epidemiology','2024-04-09 12:58:17','2024-04-09 12:58:17'),(41,11,'Biostatistics','2024-04-09 12:58:17','2024-04-09 12:58:17');
+/*!40000 ALTER TABLE `courses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `currencies`
+--
+
+DROP TABLE IF EXISTS `currencies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `currencies` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `currency_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `currency_symbol` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `currency_code` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `exchange_rate` double DEFAULT NULL,
+  `is_cryptocurrency` enum('yes','no') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'no',
+  `usd_price` double DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `currencies`
+--
+
+LOCK TABLES `currencies` WRITE;
+/*!40000 ALTER TABLE `currencies` DISABLE KEYS */;
+INSERT INTO `currencies` VALUES (1,'Dollars','$','USD',NULL,'no',NULL,'2024-04-09 12:58:18','2024-04-09 12:58:18'),(2,'Pounds','£','GBP',NULL,'no',NULL,'2024-04-09 12:58:18','2024-04-09 12:58:18'),(3,'Euros','€','EUR',NULL,'no',NULL,'2024-04-09 12:58:18','2024-04-09 12:58:18'),(4,'Rupee','₹','INR',NULL,'no',NULL,'2024-04-09 12:58:18','2024-04-09 12:58:18');
+/*!40000 ALTER TABLE `currencies` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `documentations`
+--
+
+DROP TABLE IF EXISTS `documentations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `documentations` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `student_id` int unsigned NOT NULL,
+  `final_documentation` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `status` tinyint NOT NULL DEFAULT '0',
+  `comment` varchar(2000) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `completion` tinyint NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `documentations_student_id_index` (`student_id`),
+  CONSTRAINT `documentations_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documentations`
+--
+
+LOCK TABLES `documentations` WRITE;
+/*!40000 ALTER TABLE `documentations` DISABLE KEYS */;
+INSERT INTO `documentations` VALUES (1,2,'Progress Monitoring system and Project Management System documentation.pdf',1,'Completed',1,'2024-04-10 06:59:42','2024-04-10 07:03:04'),(2,24,'Progress monitoring system and Management documentation.pdf',1,'Closed',1,'2024-04-10 08:44:29','2024-04-10 08:47:43');
+/*!40000 ALTER TABLE `documentations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `email_notification_settings`
+--
+
+DROP TABLE IF EXISTS `email_notification_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `email_notification_settings` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `setting_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `send_email` enum('yes','no') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'no',
+  `send_slack` enum('yes','no') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'no',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `email_notification_settings`
+--
+
+LOCK TABLES `email_notification_settings` WRITE;
+/*!40000 ALTER TABLE `email_notification_settings` DISABLE KEYS */;
+INSERT INTO `email_notification_settings` VALUES (1,'User Registration/Added by Admin','yes','no','2024-04-09 12:58:18','2024-04-09 12:58:18'),(2,'Employee Assign to Project','yes','no','2024-04-09 12:58:18','2024-04-09 12:58:18'),(3,'New Notice Published','no','no','2024-04-09 12:58:18','2024-04-09 12:58:18'),(4,'User Assign to Task','yes','no','2024-04-09 12:58:18','2024-04-09 12:58:18');
+/*!40000 ALTER TABLE `email_notification_settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employee_details`
+--
+
+DROP TABLE IF EXISTS `employee_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `employee_details` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned NOT NULL,
+  `job_title` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `hourly_rate` double DEFAULT NULL,
+  `slack_username` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `joining_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_date` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `employee_details_slack_username_unique` (`slack_username`),
+  KEY `employee_details_user_id_index` (`user_id`),
+  CONSTRAINT `employee_details_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee_details`
+--
+
+LOCK TABLES `employee_details` WRITE;
+/*!40000 ALTER TABLE `employee_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `employee_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `estimate_items`
+--
+
+DROP TABLE IF EXISTS `estimate_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `estimate_items` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `estimate_id` int unsigned NOT NULL,
+  `item_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `type` enum('item','discount','tax') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'item',
+  `quantity` tinyint NOT NULL,
+  `unit_price` double NOT NULL,
+  `amount` double NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `estimate_items_estimate_id_foreign` (`estimate_id`),
+  CONSTRAINT `estimate_items_estimate_id_foreign` FOREIGN KEY (`estimate_id`) REFERENCES `estimates` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `estimate_items`
+--
+
+LOCK TABLES `estimate_items` WRITE;
+/*!40000 ALTER TABLE `estimate_items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `estimate_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `estimates`
+--
+
+DROP TABLE IF EXISTS `estimates`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `estimates` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `client_id` int unsigned NOT NULL,
+  `valid_till` date NOT NULL,
+  `sub_total` double NOT NULL,
+  `total` double NOT NULL,
+  `currency_id` int unsigned DEFAULT NULL,
+  `status` enum('declined','accepted','waiting') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'waiting',
+  `note` mediumtext COLLATE utf8mb3_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `estimates_client_id_foreign` (`client_id`),
+  KEY `estimates_currency_id_foreign` (`currency_id`),
+  CONSTRAINT `estimates_client_id_foreign` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `estimates_currency_id_foreign` FOREIGN KEY (`currency_id`) REFERENCES `currencies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `estimates`
+--
+
+LOCK TABLES `estimates` WRITE;
+/*!40000 ALTER TABLE `estimates` DISABLE KEYS */;
+/*!40000 ALTER TABLE `estimates` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `expenses`
+--
+
+DROP TABLE IF EXISTS `expenses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `expenses` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `purchase_date` date NOT NULL,
+  `purchase_from` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `price` double NOT NULL,
+  `currency_id` int unsigned NOT NULL,
+  `bill` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `user_id` int unsigned NOT NULL,
+  `status` enum('pending','approved','rejected') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'pending',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `expenses_currency_id_foreign` (`currency_id`),
+  KEY `expenses_user_id_foreign` (`user_id`),
+  CONSTRAINT `expenses_currency_id_foreign` FOREIGN KEY (`currency_id`) REFERENCES `currencies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `expenses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `expenses`
+--
+
+LOCK TABLES `expenses` WRITE;
+/*!40000 ALTER TABLE `expenses` DISABLE KEYS */;
+/*!40000 ALTER TABLE `expenses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `faculties`
+--
+
+DROP TABLE IF EXISTS `faculties`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `faculties` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `faculty` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `faculties`
+--
+
+LOCK TABLES `faculties` WRITE;
+/*!40000 ALTER TABLE `faculties` DISABLE KEYS */;
+INSERT INTO `faculties` VALUES (1,'ICT','2024-04-09 12:58:17','2024-04-09 12:58:17'),(2,'Arts and Humanities','2024-04-09 12:58:17','2024-04-09 12:58:17'),(3,'Science','2024-04-09 12:58:17','2024-04-09 12:58:17'),(4,'Social Sciences','2024-04-09 12:58:17','2024-04-09 12:58:17'),(5,'Engineering','2024-04-09 12:58:17','2024-04-09 12:58:17'),(6,'Business','2024-04-09 12:58:17','2024-04-09 12:58:17'),(7,'Education','2024-04-09 12:58:17','2024-04-09 12:58:17'),(8,'Law','2024-04-09 12:58:17','2024-04-09 12:58:17'),(9,'Medicine','2024-04-09 12:58:17','2024-04-09 12:58:17'),(10,'Pharmacy','2024-04-09 12:58:17','2024-04-09 12:58:17'),(11,'Public Health','2024-04-09 12:58:17','2024-04-09 12:58:17');
+/*!40000 ALTER TABLE `faculties` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `invoice_items`
+--
+
+DROP TABLE IF EXISTS `invoice_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `invoice_items` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `invoice_id` int unsigned NOT NULL,
+  `item_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `item_summary` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `type` enum('item','discount','tax') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'item',
+  `quantity` double(16,2) NOT NULL,
+  `unit_price` double(16,2) NOT NULL,
+  `amount` double(16,2) NOT NULL,
+  `tax_id` int unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `invoice_items_invoice_id_index` (`invoice_id`),
+  KEY `invoice_items_tax_id_index` (`tax_id`),
+  CONSTRAINT `invoice_items_invoice_id_foreign` FOREIGN KEY (`invoice_id`) REFERENCES `invoices` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `invoice_items_tax_id_foreign` FOREIGN KEY (`tax_id`) REFERENCES `taxes` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `invoice_items`
+--
+
+LOCK TABLES `invoice_items` WRITE;
+/*!40000 ALTER TABLE `invoice_items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `invoice_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `invoice_settings`
+--
+
+DROP TABLE IF EXISTS `invoice_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `invoice_settings` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `invoice_prefix` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `template` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `due_after` int NOT NULL,
+  `invoice_terms` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `invoice_settings`
+--
+
+LOCK TABLES `invoice_settings` WRITE;
+/*!40000 ALTER TABLE `invoice_settings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `invoice_settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `invoices`
+--
+
+DROP TABLE IF EXISTS `invoices`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `invoices` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `project_id` int unsigned DEFAULT NULL,
+  `invoice_number` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `issue_date` date NOT NULL,
+  `due_date` date NOT NULL,
+  `sub_total` double(16,2) NOT NULL,
+  `discount` double NOT NULL DEFAULT '0',
+  `discount_type` enum('percent','fixed') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'percent',
+  `total` double(16,2) NOT NULL,
+  `currency_id` int unsigned DEFAULT NULL,
+  `status` enum('paid','unpaid','partial') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'unpaid',
+  `recurring` enum('yes','no') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'no',
+  `billing_cycle` int DEFAULT NULL,
+  `billing_interval` int DEFAULT NULL,
+  `billing_frequency` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `file` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `file_original_name` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `note` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `invoices_invoice_number_unique` (`invoice_number`),
+  KEY `invoices_project_id_index` (`project_id`),
+  KEY `invoices_currency_id_index` (`currency_id`),
+  CONSTRAINT `invoices_currency_id_foreign` FOREIGN KEY (`currency_id`) REFERENCES `currencies` (`id`),
+  CONSTRAINT `invoices_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `invoices`
+--
+
+LOCK TABLES `invoices` WRITE;
+/*!40000 ALTER TABLE `invoices` DISABLE KEYS */;
+/*!40000 ALTER TABLE `invoices` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issues`
+--
+
+DROP TABLE IF EXISTS `issues`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `issues` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `description` mediumtext COLLATE utf8mb3_unicode_ci NOT NULL,
+  `user_id` int unsigned DEFAULT NULL,
+  `project_id` int unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `issues_user_id_foreign` (`user_id`),
+  CONSTRAINT `issues_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issues`
+--
+
+LOCK TABLES `issues` WRITE;
+/*!40000 ALTER TABLE `issues` DISABLE KEYS */;
+/*!40000 ALTER TABLE `issues` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `leads`
+--
+
+DROP TABLE IF EXISTS `leads`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `leads` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `client_id` int unsigned DEFAULT NULL,
+  `source_id` int unsigned DEFAULT NULL,
+  `status_id` int unsigned DEFAULT NULL,
+  `company_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `website` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `client_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `client_email` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `mobile` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `note` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `next_follow_up` enum('yes','no') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'yes',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `leads`
+--
+
+LOCK TABLES `leads` WRITE;
+/*!40000 ALTER TABLE `leads` DISABLE KEYS */;
+/*!40000 ALTER TABLE `leads` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `logs`
+--
+
+DROP TABLE IF EXISTS `logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `logs` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `student_id` int unsigned NOT NULL,
+  `milestone` varchar(900) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `approved` tinyint NOT NULL DEFAULT '0',
+  `signed` tinyint NOT NULL DEFAULT '0',
+  `completion` tinyint NOT NULL DEFAULT '0',
+  `comments` varchar(900) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `additional_tasks` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `logs_student_id_index` (`student_id`),
+  CONSTRAINT `logs_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logs`
+--
+
+LOCK TABLES `logs` WRITE;
+/*!40000 ALTER TABLE `logs` DISABLE KEYS */;
+INSERT INTO `logs` VALUES (1,2,'Proposal Writing',1,1,3,'Fully completed','Proposal to be the approved format','2024-04-10 06:51:30','2024-04-10 06:54:00'),(2,2,'Project Schedule preparation',1,1,3,'Completed','Create an updated gantt chart','2024-04-10 06:54:23','2024-04-10 06:55:17'),(3,24,'Project Proposal Development',1,1,3,'Check on plagiarism','Write the whole report and submit before deadline, use the university template','2024-04-10 08:39:51','2024-04-10 08:41:51'),(4,24,'Supervisor Dashboard Development',1,1,3,'Completed as requested, work on next task','Add Student dashboard','2024-04-10 08:42:11','2024-04-10 08:43:03');
+/*!40000 ALTER TABLE `logs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ltm_translations`
+--
+
+DROP TABLE IF EXISTS `ltm_translations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ltm_translations` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `status` int NOT NULL DEFAULT '0',
+  `locale` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `group` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `key` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `value` text COLLATE utf8mb3_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ltm_translations`
+--
+
+LOCK TABLES `ltm_translations` WRITE;
+/*!40000 ALTER TABLE `ltm_translations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ltm_translations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `migrations` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `batch` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migrations`
+--
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES (1,'2014_04_02_193005_create_translations_table',1),(2,'2014_10_11_000000_create_faculties_table',1),(3,'2014_10_11_000001_create_courses_table',1),(4,'2014_10_12_000000_create_users_table',1),(5,'2014_10_12_100000_create_password_resets_table',1),(6,'2016_06_20_112951_create_user_chat_table',1),(7,'2017_03_21_064541_create_projects_table',1),(8,'2017_03_23_122646_create_project_category_table',1),(9,'2017_03_24_055005_create_conversation_table',1),(10,'2017_03_24_055539_create_conversation_reply_table',1),(11,'2017_03_24_061505_create_sticky_notes_table',1),(12,'2017_03_24_064541_create_issues_table',1),(13,'2017_03_29_123858_entrust_setup_tables',1),(14,'2017_04_19_101519_create_email_notification_settings_table',1),(15,'2017_04_28_114154_create_notifications_table',1),(16,'2017_05_03_174332_create_leads_table',1),(17,'2017_05_03_174333_create_currencies_table',1),(18,'2017_05_05_124320_create_modules_table',1),(19,'2017_05_05_124330_create_module_settings_table',1),(20,'2017_05_05_233111_create_invoices_table',1),(21,'2017_05_11_170244_create_organisation_settings_table',1),(22,'2017_05_24_120213_create_project_milestones_table',1),(23,'2017_05_24_120213_create_task_category_table',1),(24,'2017_05_24_120214_create_taskboard_columns_table',1),(25,'2017_05_24_120215_create_tasks_table',1),(26,'2017_05_24_120216_create_project_time_logs_table',1),(27,'2017_05_24_120216_create_smtp_settings_table',1),(28,'2017_05_31_112157_create_taxes_table',1),(29,'2017_05_31_112158_create_invoice_items_table',1),(30,'2017_05_31_112158_create_universal_search_table',1),(31,'2017_07_21_120958_create_theme_settings_table',1),(32,'2017_07_28_102010_create_estimates_table',1),(33,'2017_07_28_103230_create_estimate_items_table',1),(34,'2017_08_04_064431_create_payments_table',1),(35,'2017_08_05_103940_create_payment_gateway_credential_table',1),(36,'2017_08_09_054230_create_expenses_table',1),(37,'2017_08_18_055908_add_expense_module_in_module_table',1),(38,'2017_08_21_131318_create_invoice_setting_table',1),(39,'2017_08_22_055908_add_expense_email_setting_to_email_notification_setting_table',1),(40,'2017_08_24_095056_add_client_estimate_module_in_module_settings_table',1),(41,'2017_08_30_093400_create_settings_table',1),(42,'2017_08_30_123956_create_employee_details_table',1),(43,'2017_09_25_072410_create_ticket_types_table',1),(44,'2017_09_25_072510_create_ticket_channels_table',1),(45,'2017_09_25_072610_create_tickets_table',1),(46,'2017_09_25_072627_create_ticket_replies_table',1),(47,'2017_09_28_064756_add_ticket_modules',1),(48,'2018_07_05_131340_create_supervisors_table',1),(49,'2018_07_05_131345_create_students_table',1),(50,'2018_07_07_205005_create_proposals_table',1),(51,'2018_07_07_205407_create_titles_table',1),(52,'2018_07_07_205633_create_problems_table',1),(53,'2018_07_07_205720_create_objectives_table',1),(54,'2018_07_07_205831_create_title_reviews_table',1),(55,'2018_07_07_205854_create_objective_reviews_table',1),(56,'2018_07_07_205925_create_problem_reviews_table',1),(57,'2018_07_07_205939_create_proposal_reviews_table',1),(58,'2018_07_11_222150_create_logs_table',1),(59,'2018_07_15_154440_create_schedules_table',1),(60,'2018_07_15_185630_create_documentations_table',1),(61,'2018_07_15_190118_create_chapterones_table',1),(62,'2018_07_15_194739_create_chaptertwos_table',1),(63,'2018_07_15_194951_create_chapterthrees_table',1),(64,'2018_07_16_073604_create_areas_table',1),(65,'2018_07_30_054355_create_notices_table',1),(66,'2018_08_03_103416_create_codes_table',1);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `module_settings`
+--
+
+DROP TABLE IF EXISTS `module_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `module_settings` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `type` enum('employee','client') COLLATE utf8mb3_unicode_ci NOT NULL,
+  `module_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `status` enum('active','disabled') COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `module_settings`
+--
+
+LOCK TABLES `module_settings` WRITE;
+/*!40000 ALTER TABLE `module_settings` DISABLE KEYS */;
+INSERT INTO `module_settings` VALUES (1,'employee','dashboard','active','2024-04-09 12:58:18','2024-04-09 12:58:18'),(2,'employee','projects','active','2024-04-09 12:58:18','2024-04-09 12:58:18'),(3,'employee','task calendar','active','2024-04-09 12:58:18','2024-04-09 12:58:18'),(4,'employee','messages','active','2024-04-09 12:58:18','2024-04-09 12:58:18'),(5,'employee','sticky note','active','2024-04-09 12:58:18','2024-04-09 12:58:18'),(6,'employee','notices','active','2024-04-09 12:58:18','2024-04-09 12:58:18'),(7,'client','dashboard','active','2024-04-09 12:58:18','2024-04-09 12:58:18'),(8,'client','invoices','active','2024-04-09 12:58:18','2024-04-09 12:58:18'),(9,'client','projects','active','2024-04-09 12:58:18','2024-04-09 12:58:18'),(10,'client','issues','active','2024-04-09 12:58:18','2024-04-09 12:58:18'),(11,'client','sticky note','active','2024-04-09 12:58:18','2024-04-09 12:58:18');
+/*!40000 ALTER TABLE `module_settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `modules`
+--
+
+DROP TABLE IF EXISTS `modules`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `modules` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `module_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `description` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `modules`
+--
+
+LOCK TABLES `modules` WRITE;
+/*!40000 ALTER TABLE `modules` DISABLE KEYS */;
+INSERT INTO `modules` VALUES (1,'clients','','2019-12-10 02:48:29','2019-12-10 02:48:29'),(2,'employees','','2019-12-10 02:48:29','2019-12-10 02:48:29'),(3,'projects','User can view the basic details of projects assigned to him even without any permission.','2019-12-10 02:48:29','2019-12-10 02:48:29'),(4,'attendance','User can view his own attendance even without any permission.','2019-12-10 02:48:29','2019-12-10 02:48:29'),(5,'tasks','User can view the tasks assigned to him even without any permission.','2019-12-10 02:48:29','2019-12-10 02:48:29'),(6,'estimates','','2019-12-10 02:48:29','2019-12-10 02:48:29'),(7,'invoices','','2019-12-10 02:48:29','2019-12-10 02:48:29'),(8,'payments','','2019-12-10 02:48:29','2019-12-10 02:48:29'),(9,'timelogs','','2019-12-10 02:48:29','2019-12-10 02:48:29'),(10,'tickets','User can view the tickets generated by him as default even without any permission.','2019-12-10 02:48:29','2019-12-10 02:48:29'),(11,'events','User can view the events to be attended by him as default even without any permission.','2019-12-10 02:48:29','2019-12-10 02:48:29'),(12,'notice board','','2019-12-10 02:48:29','2019-12-10 02:48:29'),(13,'leaves','User can view the leaves applied by him as default even without any permission.','2019-12-10 02:48:29','2019-12-10 02:48:29'),(14,'leads',NULL,'2019-12-10 02:48:29','2019-12-10 02:48:29'),(15,'holidays',NULL,'2019-12-10 02:48:28','2019-12-10 02:48:28'),(16,'products',NULL,'2019-12-10 02:48:29','2019-12-10 02:48:29'),(17,'expenses','User can view and add(self expenses) the expenses as default even without any permission.','2019-12-10 02:48:41','2019-12-10 02:48:41');
+/*!40000 ALTER TABLE `modules` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notices`
+--
+
+DROP TABLE IF EXISTS `notices`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `notices` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned NOT NULL,
+  `target` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `heading` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `description` mediumtext COLLATE utf8mb3_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `notices_user_id_index` (`user_id`),
+  CONSTRAINT `notices_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notices`
+--
+
+LOCK TABLES `notices` WRITE;
+/*!40000 ALTER TABLE `notices` DISABLE KEYS */;
+INSERT INTO `notices` VALUES (1,1,'students','New Project Deadline','This it test','2024-04-10 07:22:15','2024-04-10 07:22:15'),(2,1,'students','New Project Final Presentation Deadline','A new date for project presentation is scheduled on 13/12/2024','2024-04-10 08:18:45','2024-04-10 08:18:45');
+/*!40000 ALTER TABLE `notices` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notifications`
+--
+
+DROP TABLE IF EXISTS `notifications`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `notifications` (
+  `id` char(36) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `type` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `notifiable_id` int unsigned NOT NULL,
+  `notifiable_type` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `data` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `read_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `notifications_notifiable_id_notifiable_type_index` (`notifiable_id`,`notifiable_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notifications`
+--
+
+LOCK TABLES `notifications` WRITE;
+/*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
+INSERT INTO `notifications` VALUES ('0473820c-9e86-4d6a-9d10-d760295d8289','App\\Notifications\\NewChat',33,'App\\User','{\"message\":\"Hello Sir\",\"user_one\":32,\"user_id\":\"33\",\"from\":32,\"to\":\"33\",\"updated_at\":\"2024-04-10 11:23:33\",\"created_at\":\"2024-04-10 11:23:33\",\"id\":3}','2024-04-10 08:23:45','2024-04-10 08:23:33','2024-04-10 08:23:45'),('053131f3-736d-41e1-bb02-f7dab74f69f8','App\\Notifications\\NewNotice',30,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('0c9e0734-f084-407c-a6e5-3252d7e59b26','App\\Notifications\\NewNotice',16,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('1276529a-da62-43e5-b35d-e6abe4d74d44','App\\Notifications\\NewNotice',14,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('19987ba3-d4be-4349-8ca4-35edb2e763dd','App\\Notifications\\NewNotice',21,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('1e5b8c9d-bbd8-44bc-a02a-ed9ff30bd2e9','App\\Notifications\\NewNotice',24,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('1f8b35f9-9356-490c-bed0-62dd59f8604f','App\\Notifications\\NewUser',32,'App\\User','{\"id\":32,\"faculty_id\":1,\"course_id\":8,\"name\":\"Roy Malaba\",\"admission_staff_no\":\"CIT-223-123\\/2024\",\"email\":\"roymalaba@gmail.com\",\"gender\":\"Male\",\"image\":null,\"mobile\":null,\"locale\":\"en\",\"mime\":null,\"phone\":\"+254713676654\",\"year\":4,\"passrec\":1,\"status\":1,\"created_at\":\"2024-04-10 11:13:15\",\"updated_at\":\"2024-04-10 11:21:35\"}','2024-04-10 08:25:19','2024-04-10 08:21:35','2024-04-10 08:25:19'),('21d4b5cb-d2e4-4665-b3a7-ef2130a4d904','App\\Notifications\\NewNotice',9,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('291fa333-03ee-410d-b22d-3ce3da57435b','App\\Notifications\\NewNotice',20,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('2aff8093-5e65-43e9-a71b-15d25fc446e6','App\\Notifications\\NewNotice',13,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('2b6744d3-7b95-4c88-bcc4-fac700be52b3','App\\Notifications\\NewNotice',24,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('37f134f8-00e7-4e5e-8321-f5bfce789a35','App\\Notifications\\NewUser',33,'App\\User','{\"id\":33,\"faculty_id\":1,\"course_id\":null,\"name\":\"Eve Buck\",\"admission_staff_no\":\"PF-1289\\/2024\",\"email\":\"cotol@mailinator.com\",\"gender\":\"Male\",\"image\":null,\"mobile\":null,\"locale\":\"en\",\"mime\":null,\"phone\":\"+1 (886) 848-4124\",\"year\":null,\"passrec\":1,\"status\":1,\"created_at\":\"2024-04-10 11:14:39\",\"updated_at\":\"2024-04-10 11:23:06\"}','2024-04-10 08:23:45','2024-04-10 08:23:06','2024-04-10 08:23:45'),('3a8ad238-701c-4672-bd77-533efe5ce9ca','App\\Notifications\\NewNotice',8,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('3de6dc74-0bb5-45de-91a4-9853ce609271','App\\Notifications\\NewNotice',18,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('3e1fc94e-6040-43f9-a56c-b223d1500f86','App\\Notifications\\NewChat',33,'App\\User','{\"message\":\"Okay\",\"user_one\":32,\"user_id\":\"33\",\"from\":32,\"to\":\"33\",\"updated_at\":\"2024-04-10 11:24:52\",\"created_at\":\"2024-04-10 11:24:52\",\"id\":7}','2024-04-10 08:27:38','2024-04-10 08:24:52','2024-04-10 08:27:38'),('43dcd0d4-c63a-46cf-89a8-ab83765425a2','App\\Notifications\\NewNotice',32,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}','2024-04-10 08:25:19','2024-04-10 08:18:45','2024-04-10 08:25:19'),('47a94261-f5ee-42c8-99d2-b4f8e77d7f33','App\\Notifications\\NewUser',9,'App\\User','{\"id\":9,\"faculty_id\":10,\"course_id\":38,\"name\":\"Courtney Corkery\",\"admission_staff_no\":\"CIT-223-8141\\/2024\",\"email\":\"feeney.karlie@example.org\",\"gender\":null,\"image\":null,\"mobile\":\"+254713676482\",\"locale\":\"en\",\"mime\":\"png\",\"phone\":null,\"year\":null,\"passrec\":1,\"status\":1,\"created_at\":\"2024-04-09 15:58:20\",\"updated_at\":\"2024-04-10 08:51:51\"}','2024-04-10 06:01:48','2024-04-10 05:51:51','2024-04-10 06:01:48'),('47bc6c8a-a799-4211-874c-c1025b67257b','App\\Notifications\\NewNotice',19,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('47e0ebe1-f5e9-4ad4-8eea-6f114e42ff42','App\\Notifications\\NewUser',3,'App\\User','{\"id\":3,\"faculty_id\":11,\"course_id\":null,\"name\":\"Prof. Eula Champlin II\",\"admission_staff_no\":\"PF-5382\\/2024\",\"email\":\"pweissnat@example.org\",\"gender\":null,\"image\":null,\"mobile\":\"+254713676302\",\"locale\":\"en\",\"mime\":\"png\",\"phone\":null,\"year\":null,\"passrec\":1,\"status\":1,\"created_at\":\"2024-04-09 15:58:20\",\"updated_at\":\"2024-04-10 09:04:12\"}','2024-04-10 06:12:07','2024-04-10 06:04:12','2024-04-10 06:12:07'),('569a38d2-e534-4796-a275-c09ec79efc10','App\\Notifications\\NewChat',32,'App\\User','{\"message\":\"Hey Roy\",\"user_one\":33,\"user_id\":\"32\",\"from\":33,\"to\":\"32\",\"updated_at\":\"2024-04-10 11:23:57\",\"created_at\":\"2024-04-10 11:23:57\",\"id\":4}','2024-04-10 08:25:19','2024-04-10 08:23:57','2024-04-10 08:25:19'),('58f4a05b-98b1-4ade-ae9b-acb6a2b364b4','App\\Notifications\\NewNotice',18,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('5956f045-17bd-4546-b3a7-3725552613a7','App\\Notifications\\NewChat',32,'App\\User','{\"message\":\"Lets meet at 2 PM , please fill in the tilte before the meeting\",\"user_one\":33,\"user_id\":\"32\",\"from\":33,\"to\":\"32\",\"updated_at\":\"2024-04-10 11:24:43\",\"created_at\":\"2024-04-10 11:24:43\",\"id\":6}','2024-04-10 08:25:19','2024-04-10 08:24:43','2024-04-10 08:25:19'),('598fc2f3-5b54-4cf0-8530-8b41a555d57f','App\\Notifications\\NewNotice',26,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('5e6e1b1a-5f98-46c0-aece-e018302a41f6','App\\Notifications\\NewNotice',28,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('67760be3-afbf-4dd1-a11a-3e091e0e0ef1','App\\Notifications\\NewNotice',23,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('6dbcda64-cff8-4b21-85f6-b6c08ffe84dc','App\\Notifications\\NewNotice',19,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('71a1e74d-2e64-4fbe-8fde-48dcd6cab17a','App\\Notifications\\NewNotice',8,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('73b0c362-8255-45f2-9b44-a6ff5ea16f9f','App\\Notifications\\NewNotice',26,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('7afda7e2-f339-4e61-82d8-45cba0a60a3d','App\\Notifications\\NewNotice',9,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('8134d2c4-ac2d-49c0-99a0-2b9c768e835a','App\\Notifications\\NewNotice',30,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:16','2024-04-10 07:22:16'),('81e8fdad-cb3a-40bf-8192-946e2786bc29','App\\Notifications\\NewChat',3,'App\\User','{\"message\":\"Hello Sir\",\"user_one\":9,\"user_id\":\"3\",\"from\":9,\"to\":\"3\",\"updated_at\":\"2024-04-10 09:17:18\",\"created_at\":\"2024-04-10 09:17:18\",\"id\":1}','2024-04-10 06:20:02','2024-04-10 06:17:18','2024-04-10 06:20:02'),('877efdad-fc4a-43ec-9300-f7f6939086bb','App\\Notifications\\NewNotice',25,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('8cd41130-b736-47ff-8ff9-8a1bfd070858','App\\Notifications\\NewNotice',29,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('8e26a28b-41a1-44cc-85cc-026d03c69abd','App\\Notifications\\NewNotice',11,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('a1571c53-1cb3-4afa-9f5f-891c07fbf6da','App\\Notifications\\NewChat',32,'App\\User','{\"message\":\"Your project is now completed, wait for the final results\",\"user_one\":33,\"user_id\":\"32\",\"from\":33,\"to\":\"32\",\"updated_at\":\"2024-04-10 11:48:44\",\"created_at\":\"2024-04-10 11:48:44\",\"id\":8}',NULL,'2024-04-10 08:48:44','2024-04-10 08:48:44'),('a1717ad4-cf1d-4bf7-b270-c5d090594476','App\\Notifications\\NewNotice',25,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('a2d368ae-57d2-4952-831c-0a9ccb8688ce','App\\Notifications\\NewNotice',23,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('a8d3453c-3983-4ff4-a6f8-5ca2b9b1d2e8','App\\Notifications\\NewNotice',31,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('b3179b00-be53-4c01-a9a1-302ccd7c20ad','App\\Notifications\\NewNotice',15,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('b4c17e20-786f-47c9-83e7-d2e3e2a30747','App\\Notifications\\NewNotice',22,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('b522f054-9736-46d0-bff0-c4fe6a9a62f1','App\\Notifications\\NewNotice',12,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('b662e93c-4bc7-4c9e-9e18-b1257c6ac70b','App\\Notifications\\NewNotice',20,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('b7b6c25c-2150-4478-82b7-b6ceccd02957','App\\Notifications\\NewNotice',11,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('ba0c3d11-bd31-4fa3-bd9e-1d8149ec2929','App\\Notifications\\NewNotice',28,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('bd01314a-6a60-410e-9dce-ca43d1b012cc','App\\Notifications\\NewChat',9,'App\\User','{\"message\":\"Hello Courtney, How may I help you?\",\"user_one\":3,\"user_id\":\"9\",\"from\":3,\"to\":\"9\",\"updated_at\":\"2024-04-10 09:17:45\",\"created_at\":\"2024-04-10 09:17:45\",\"id\":2}','2024-04-10 06:28:24','2024-04-10 06:17:45','2024-04-10 06:28:24'),('c1a20f79-fed0-43a3-8a25-dc6884bbb212','App\\Notifications\\NewChat',33,'App\\User','{\"message\":\"What time can we meet?\",\"user_one\":32,\"user_id\":\"33\",\"from\":32,\"to\":\"33\",\"updated_at\":\"2024-04-10 11:24:21\",\"created_at\":\"2024-04-10 11:24:21\",\"id\":5}','2024-04-10 08:27:38','2024-04-10 08:24:21','2024-04-10 08:27:38'),('c537b828-7f7b-4576-85a8-87dbc6fd7468','App\\Notifications\\NewUser',8,'App\\User','{\"id\":8,\"faculty_id\":8,\"course_id\":32,\"name\":\"Jovanny Kihn\",\"admission_staff_no\":\"CIT-223-3897\\/2024\",\"email\":\"emmett12@example.org\",\"gender\":null,\"image\":null,\"mobile\":\"+254713676438\",\"locale\":\"en\",\"mime\":\"png\",\"phone\":null,\"year\":null,\"passrec\":1,\"status\":1,\"created_at\":\"2024-04-09 15:58:20\",\"updated_at\":\"2024-04-09 21:52:31\"}',NULL,'2024-04-09 18:52:31','2024-04-09 18:52:31'),('cb2cf5a1-2f4f-4d0c-b8a1-31c3841601c5','App\\Notifications\\NewNotice',17,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('cb8f11ae-2b82-47dc-a327-5b4502e39a07','App\\Notifications\\NewNotice',29,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('cc0ed8a1-dbb3-4eeb-a6cf-fcd02589343a','App\\Notifications\\NewNotice',16,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('d3a9fde7-419b-4af9-9a8b-e427c7ce4f27','App\\Notifications\\NewNotice',17,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('d9b3bd7d-bef2-41a2-afac-6c0535b80a51','App\\Notifications\\NewNotice',22,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('e3b84d0e-f4d8-4c80-ad1a-4957c9dcfb1c','App\\Notifications\\NewNotice',12,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('e6b53e90-2642-4715-870b-6e549f7bd847','App\\Notifications\\NewNotice',31,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:16','2024-04-10 07:22:16'),('e6ba8801-1a12-4612-a591-33677f4c3b20','App\\Notifications\\NewNotice',27,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('e79b78c2-5290-4de3-94f9-b49d63659fc7','App\\Notifications\\NewNotice',21,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('e7de3867-6062-4a6e-a6fb-16cef05e399e','App\\Notifications\\NewNotice',27,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('eacc94fc-4c1d-45b7-8ece-797eda45f32e','App\\Notifications\\NewNotice',14,'App\\User','{\"user_id\":1,\"heading\":\"New Project Final Presentation Deadline\",\"target\":\"students\",\"description\":\"A new date for project presentation is scheduled on 13\\/12\\/2024\",\"updated_at\":\"2024-04-10 11:18:45\",\"created_at\":\"2024-04-10 11:18:45\",\"id\":2}',NULL,'2024-04-10 08:18:45','2024-04-10 08:18:45'),('eafcb9d2-fa24-4395-b41b-a699c90dba8a','App\\Notifications\\NewNotice',13,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15'),('fdd280db-b276-4212-897f-1e223bf2bd4d','App\\Notifications\\NewNotice',15,'App\\User','{\"user_id\":1,\"heading\":\"New Project Deadline\",\"target\":\"students\",\"description\":\"This it test\",\"updated_at\":\"2024-04-10 10:22:15\",\"created_at\":\"2024-04-10 10:22:15\",\"id\":1}',NULL,'2024-04-10 07:22:15','2024-04-10 07:22:15');
+/*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `objective_reviews`
+--
+
+DROP TABLE IF EXISTS `objective_reviews`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `objective_reviews` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `objective_id` int unsigned NOT NULL,
+  `user_id` int unsigned NOT NULL,
+  `review` varchar(1200) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `objective_reviews_user_id_index` (`user_id`),
+  KEY `objective_reviews_objective_id_index` (`objective_id`),
+  CONSTRAINT `objective_reviews_objective_id_foreign` FOREIGN KEY (`objective_id`) REFERENCES `objectives` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `objective_reviews_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `objective_reviews`
+--
+
+LOCK TABLES `objective_reviews` WRITE;
+/*!40000 ALTER TABLE `objective_reviews` DISABLE KEYS */;
+INSERT INTO `objective_reviews` VALUES (1,1,3,'Please proceed with project proposal','2024-04-10 06:29:27','2024-04-10 06:29:27'),(2,2,33,'Okay','2024-04-10 08:32:49','2024-04-10 08:32:49');
+/*!40000 ALTER TABLE `objective_reviews` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `objectives`
+--
+
+DROP TABLE IF EXISTS `objectives`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `objectives` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `proposal_id` int unsigned NOT NULL,
+  `questions` varchar(1200) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `objectives` varchar(700) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `status` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `objectives_proposal_id_index` (`proposal_id`),
+  CONSTRAINT `objectives_proposal_id_foreign` FOREIGN KEY (`proposal_id`) REFERENCES `proposals` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `objectives`
+--
+
+LOCK TABLES `objectives` WRITE;
+/*!40000 ALTER TABLE `objectives` DISABLE KEYS */;
+INSERT INTO `objectives` VALUES (1,2,'<ol><li>Question one</li><li>Question two</li></ol>','<ol><li>Objective one</li><li>Objective two</li></ol>','1','2024-04-10 06:28:26','2024-04-10 06:31:43'),(2,3,'<ol><li>Research Question 1</li><li>Research Question 2</li></ol>','<ol><li>Objective one</li><li>Objective two</li></ol>','1','2024-04-10 08:32:34','2024-04-10 08:32:53');
+/*!40000 ALTER TABLE `objectives` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `organisation_settings`
+--
+
+DROP TABLE IF EXISTS `organisation_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `organisation_settings` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `company_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `company_email` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `company_phone` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `logo` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `login_background` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `website` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `currency_id` int unsigned DEFAULT NULL,
+  `timezone` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'Asia/Kolkata',
+  `date_format` varchar(20) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'd-m-Y',
+  `time_format` varchar(20) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'h:i a',
+  `locale` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'en',
+  `latitude` decimal(10,8) NOT NULL DEFAULT '26.91243360',
+  `longitude` decimal(11,8) NOT NULL DEFAULT '75.78727090',
+  `leaves_start_from` enum('joining_date','year_start') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'joining_date',
+  `active_theme` enum('default','custom') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'default',
+  `last_updated_by` int unsigned DEFAULT NULL,
+  `currency_converter_key` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `google_map_key` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `task_self` enum('yes','no') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'yes',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `weather_key` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `purchase_code` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `organisation_settings_last_updated_by_index` (`last_updated_by`),
+  KEY `organisation_settings_currency_id_index` (`currency_id`),
+  CONSTRAINT `organisation_settings_currency_id_foreign` FOREIGN KEY (`currency_id`) REFERENCES `currencies` (`id`),
+  CONSTRAINT `organisation_settings_last_updated_by_foreign` FOREIGN KEY (`last_updated_by`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `organisation_settings`
+--
+
+LOCK TABLES `organisation_settings` WRITE;
+/*!40000 ALTER TABLE `organisation_settings` DISABLE KEYS */;
+INSERT INTO `organisation_settings` VALUES (1,'Worksuite','company@email.com','1234567891',NULL,NULL,'Company address','www.domain.com',1,'Asia/Kolkata','d-m-Y','h:i a','en',26.91243360,75.78727090,'joining_date','default',NULL,NULL,NULL,'yes','2019-12-10 02:49:11','2019-12-10 02:49:11','9f7190aeb882036f098ba016003ab300',NULL);
+/*!40000 ALTER TABLE `organisation_settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `password_resets`
+--
+
+DROP TABLE IF EXISTS `password_resets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`),
+  KEY `password_resets_token_index` (`token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+LOCK TABLES `password_resets` WRITE;
+/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payment_gateway_credentials`
+--
+
+DROP TABLE IF EXISTS `payment_gateway_credentials`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `payment_gateway_credentials` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `paypal_client_id` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `paypal_secret` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `paypal_status` enum('active','deactive') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'active',
+  `stripe_client_id` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `stripe_secret` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `stripe_webhook_secret` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `stripe_status` enum('active','deactive') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment_gateway_credentials`
+--
+
+LOCK TABLES `payment_gateway_credentials` WRITE;
+/*!40000 ALTER TABLE `payment_gateway_credentials` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payment_gateway_credentials` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payments`
+--
+
+DROP TABLE IF EXISTS `payments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `payments` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `invoice_id` int unsigned NOT NULL,
+  `amount` double NOT NULL,
+  `gateway` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `transaction_id` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `status` enum('complete','pending') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'pending',
+  `paid_on` datetime DEFAULT NULL,
+  `plan_id` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `customer_id` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `event_id` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `payments_transaction_id_unique` (`transaction_id`),
+  UNIQUE KEY `payments_plan_id_unique` (`plan_id`),
+  UNIQUE KEY `payments_event_id_unique` (`event_id`),
+  KEY `payments_invoice_id_foreign` (`invoice_id`),
+  CONSTRAINT `payments_invoice_id_foreign` FOREIGN KEY (`invoice_id`) REFERENCES `invoices` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payments`
+--
+
+LOCK TABLES `payments` WRITE;
+/*!40000 ALTER TABLE `payments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permission_role`
+--
+
+DROP TABLE IF EXISTS `permission_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `permission_role` (
+  `permission_id` int unsigned NOT NULL,
+  `role_id` int unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`,`role_id`),
+  KEY `permission_role_role_id_foreign` (`role_id`),
+  CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permission_role`
+--
+
+LOCK TABLES `permission_role` WRITE;
+/*!40000 ALTER TABLE `permission_role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permission_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permissions`
+--
+
+DROP TABLE IF EXISTS `permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `permissions` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `display_name` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `permissions_name_unique` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permissions`
+--
+
+LOCK TABLES `permissions` WRITE;
+/*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `problem_reviews`
+--
+
+DROP TABLE IF EXISTS `problem_reviews`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `problem_reviews` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `problem_id` int unsigned NOT NULL,
+  `user_id` int unsigned NOT NULL,
+  `review` varchar(1200) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `problem_reviews_user_id_index` (`user_id`),
+  KEY `problem_reviews_problem_id_index` (`problem_id`),
+  CONSTRAINT `problem_reviews_problem_id_foreign` FOREIGN KEY (`problem_id`) REFERENCES `problems` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `problem_reviews_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `problem_reviews`
+--
+
+LOCK TABLES `problem_reviews` WRITE;
+/*!40000 ALTER TABLE `problem_reviews` DISABLE KEYS */;
+INSERT INTO `problem_reviews` VALUES (1,1,3,'This is a test','2024-04-10 06:26:33','2024-04-10 06:26:33'),(2,1,9,'Okay sir','2024-04-10 06:26:40','2024-04-10 06:26:40'),(3,2,33,'Please correct spelling errors','2024-04-10 08:31:37','2024-04-10 08:31:37'),(4,2,32,'Changes made','2024-04-10 08:31:46','2024-04-10 08:31:46');
+/*!40000 ALTER TABLE `problem_reviews` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `problems`
+--
+
+DROP TABLE IF EXISTS `problems`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `problems` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `proposal_id` int unsigned NOT NULL,
+  `problem` varchar(7000) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `status` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `problems_proposal_id_index` (`proposal_id`),
+  CONSTRAINT `problems_proposal_id_foreign` FOREIGN KEY (`proposal_id`) REFERENCES `proposals` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `problems`
+--
+
+LOCK TABLES `problems` WRITE;
+/*!40000 ALTER TABLE `problems` DISABLE KEYS */;
+INSERT INTO `problems` VALUES (1,2,'<p>Project monitoring system problem statement</p>','1','2024-04-10 06:26:16','2024-04-10 06:27:34'),(2,3,'<p>Some very long narrative here</p><ol><li>Some statement</li><li>Some statement</li></ol><p><b>Test data</b></p><p>Some more statement</p>','1','2024-04-10 08:31:11','2024-04-10 08:31:50');
+/*!40000 ALTER TABLE `problems` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project_category`
+--
+
+DROP TABLE IF EXISTS `project_category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `project_category` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `project_category`
+--
+
+LOCK TABLES `project_category` WRITE;
+/*!40000 ALTER TABLE `project_category` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project_category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project_milestones`
+--
+
+DROP TABLE IF EXISTS `project_milestones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `project_milestones` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `project_id` int unsigned DEFAULT NULL,
+  `currency_id` int unsigned DEFAULT NULL,
+  `milestone_title` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `summary` mediumtext COLLATE utf8mb3_unicode_ci NOT NULL,
+  `cost` double(8,2) NOT NULL,
+  `status` enum('complete','incomplete') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'incomplete',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `invoice_created` tinyint NOT NULL DEFAULT '0',
+  `invoice_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `project_milestones_project_id_index` (`project_id`),
+  KEY `project_milestones_currency_id_index` (`currency_id`),
+  CONSTRAINT `project_milestones_currency_id_foreign` FOREIGN KEY (`currency_id`) REFERENCES `currencies` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `project_milestones_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `project_milestones`
+--
+
+LOCK TABLES `project_milestones` WRITE;
+/*!40000 ALTER TABLE `project_milestones` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project_milestones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project_time_logs`
+--
+
+DROP TABLE IF EXISTS `project_time_logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `project_time_logs` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `project_id` int unsigned DEFAULT NULL,
+  `task_id` int unsigned DEFAULT NULL,
+  `user_id` int unsigned NOT NULL,
+  `start_time` datetime NOT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `memo` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `total_hours` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `total_minutes` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `edited_by_user` int unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `project_time_logs_project_id_index` (`project_id`),
+  KEY `project_time_logs_task_id_index` (`task_id`),
+  KEY `project_time_logs_user_id_index` (`user_id`),
+  KEY `project_time_logs_edited_by_user_index` (`edited_by_user`),
+  CONSTRAINT `project_time_logs_edited_by_user_foreign` FOREIGN KEY (`edited_by_user`) REFERENCES `users` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `project_time_logs_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `project_time_logs_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `project_time_logs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `project_time_logs`
+--
+
+LOCK TABLES `project_time_logs` WRITE;
+/*!40000 ALTER TABLE `project_time_logs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project_time_logs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `projects`
+--
+
+DROP TABLE IF EXISTS `projects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `projects` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `project_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `project_summary` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `project_admin` int unsigned DEFAULT NULL,
+  `start_date` date NOT NULL,
+  `deadline` date DEFAULT NULL,
+  `notes` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `category_id` int unsigned DEFAULT NULL,
+  `client_id` int unsigned DEFAULT NULL,
+  `feedback` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `manual_timelog` enum('enable','disable') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'disable',
+  `client_view_task` enum('enable','disable') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'disable',
+  `allow_client_notification` enum('enable','disable') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'disable',
+  `completion_percent` tinyint NOT NULL,
+  `calculate_task_progress` enum('true','false') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'true',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `paused` tinyint NOT NULL DEFAULT '0',
+  `project_budget` double(20,2) DEFAULT NULL,
+  `currency_id` int unsigned DEFAULT NULL,
+  `hours_allocated` double(8,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `projects`
+--
+
+LOCK TABLES `projects` WRITE;
+/*!40000 ALTER TABLE `projects` DISABLE KEYS */;
+/*!40000 ALTER TABLE `projects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proposal_reviews`
+--
+
+DROP TABLE IF EXISTS `proposal_reviews`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proposal_reviews` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `proposal_id` int unsigned NOT NULL,
+  `user_id` int unsigned NOT NULL,
+  `review` varchar(1200) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `proposal_reviews_user_id_index` (`user_id`),
+  KEY `proposal_reviews_proposal_id_index` (`proposal_id`),
+  CONSTRAINT `proposal_reviews_proposal_id_foreign` FOREIGN KEY (`proposal_id`) REFERENCES `proposals` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `proposal_reviews_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proposal_reviews`
+--
+
+LOCK TABLES `proposal_reviews` WRITE;
+/*!40000 ALTER TABLE `proposal_reviews` DISABLE KEYS */;
+INSERT INTO `proposal_reviews` VALUES (1,2,3,'Please check plagiarism','2024-04-10 06:34:52','2024-04-10 06:34:52'),(2,2,9,'Okay sir','2024-04-10 06:34:59','2024-04-10 06:34:59'),(3,3,33,'Plagiarism too high, correct','2024-04-10 08:33:52','2024-04-10 08:33:52');
+/*!40000 ALTER TABLE `proposal_reviews` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proposals`
+--
+
+DROP TABLE IF EXISTS `proposals`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proposals` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `student_id` int unsigned NOT NULL,
+  `field` varchar(700) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `subareas` varchar(700) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `main_subarea` varchar(100) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `file` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `deadline` timestamp NULL DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT '0',
+  `remarks` varchar(2000) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `completed` tinyint NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `proposals_student_id_index` (`student_id`),
+  CONSTRAINT `proposals_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proposals`
+--
+
+LOCK TABLES `proposals` WRITE;
+/*!40000 ALTER TABLE `proposals` DISABLE KEYS */;
+INSERT INTO `proposals` VALUES (1,1,'Test data','Test&nbsp;<br><ul><li>Data test</li><li>Test Test</li></ul>','Test test',NULL,NULL,'0','',0,'2024-04-09 19:48:34','2024-04-09 19:48:34'),(2,2,'Project Management in Education','<ol><li>Education</li><li>Project Management</li><li>File Management</li><li>Undergraduate Projects</li></ol>','Project Management','Progress Monitoring system and Project Management System.pdf','2024-04-13 21:00:00','1','<p>Test data</p><p><br></p>',1,'2024-04-10 06:15:21','2024-04-10 06:51:50'),(3,24,'Project Management','<ul><li>Education</li><li>Project Management</li><li>Test</li><li>Additional</li></ul>','Project management','Progress monitoring system and Management.pdf','2024-04-18 21:00:00','1','<p>Please proceed with the final project. Keep in mind the following</p><ol><li>Number 1</li><li>Number 2</li></ol>',1,'2024-04-10 08:27:06','2024-04-10 08:40:05');
+/*!40000 ALTER TABLE `proposals` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `role_user`
+--
+
+DROP TABLE IF EXISTS `role_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `role_user` (
+  `user_id` int unsigned NOT NULL,
+  `role_id` int unsigned NOT NULL,
+  PRIMARY KEY (`user_id`,`role_id`),
+  KEY `role_user_role_id_foreign` (`role_id`),
+  CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `role_user`
+--
+
+LOCK TABLES `role_user` WRITE;
+/*!40000 ALTER TABLE `role_user` DISABLE KEYS */;
+INSERT INTO `role_user` VALUES (1,1),(2,2),(3,2),(4,2),(5,2),(6,2),(7,2),(10,2),(33,2),(8,3),(9,3),(11,3),(12,3),(13,3),(14,3),(15,3),(16,3),(17,3),(18,3),(19,3),(20,3),(21,3),(22,3),(23,3),(24,3),(25,3),(26,3),(27,3),(28,3),(29,3),(30,3),(31,3),(32,3);
+/*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `roles` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `display_name` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `roles_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'coordinator','Project Coordinator','Admin is allowed to manage everything of the app.','2019-12-10 02:49:11','2019-12-10 02:49:11'),(2,'supervisor','Project Supervisor','Supervisor are assigned to students.','2019-12-10 02:49:11','2019-12-10 02:49:11'),(3,'student','Student','University students.','2019-12-10 02:49:11','2019-12-10 02:49:11');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schedules`
+--
+
+DROP TABLE IF EXISTS `schedules`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `schedules` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `student_id` int unsigned NOT NULL,
+  `task_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `start` date NOT NULL,
+  `duration` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `dependency` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `percentage_complete` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `schedules_student_id_index` (`student_id`),
+  CONSTRAINT `schedules_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedules`
+--
+
+LOCK TABLES `schedules` WRITE;
+/*!40000 ALTER TABLE `schedules` DISABLE KEYS */;
+INSERT INTO `schedules` VALUES (1,2,'Project Title Submission','2024-04-11','4',NULL,'0','2024-04-10 06:38:12','2024-04-10 06:38:12'),(2,2,'Problem statement','2024-04-14','2','1','0','2024-04-10 06:38:37','2024-04-10 06:38:37'),(3,2,'Project objectives and research questions','2024-04-17','3','2','0','2024-04-10 06:39:28','2024-04-10 06:39:28'),(4,2,'Proposal writing','2024-04-20','10','3','0','2024-04-10 06:39:58','2024-04-10 06:39:58'),(5,24,'Problem statment','2024-04-12','5',NULL,'0','2024-04-10 08:35:53','2024-04-10 08:35:53'),(6,24,'Reseach objectives','2024-04-16','2','5','0','2024-04-10 08:36:17','2024-04-10 08:36:17'),(7,24,'Literature review','2024-04-18','10','6','0','2024-04-10 08:36:42','2024-04-10 08:36:42'),(8,24,'Database Design','2024-04-21','1','7','0','2024-04-10 08:37:42','2024-04-10 08:38:51'),(9,24,'Dashboard Development','2024-04-23','10',NULL,'0','2024-04-10 08:37:59','2024-04-10 08:37:59');
+/*!40000 ALTER TABLE `schedules` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `slack_settings`
+--
+
+DROP TABLE IF EXISTS `slack_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `slack_settings` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `slack_webhook` text COLLATE utf8mb3_unicode_ci,
+  `slack_logo` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `slack_settings`
+--
+
+LOCK TABLES `slack_settings` WRITE;
+/*!40000 ALTER TABLE `slack_settings` DISABLE KEYS */;
+INSERT INTO `slack_settings` VALUES (1,NULL,NULL,'2024-04-09 08:20:04','2024-04-09 08:20:04');
+/*!40000 ALTER TABLE `slack_settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `smtp_settings`
+--
+
+DROP TABLE IF EXISTS `smtp_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `smtp_settings` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `mail_driver` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'smtp',
+  `mail_host` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'smtp.gmail.com',
+  `mail_port` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT '587',
+  `mail_username` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'youremail@gmail.com',
+  `mail_password` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'your password',
+  `mail_from_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'your name',
+  `mail_from_email` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'from@email.com',
+  `mail_encryption` enum('tls','ssl') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'tls',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `smtp_settings`
+--
+
+LOCK TABLES `smtp_settings` WRITE;
+/*!40000 ALTER TABLE `smtp_settings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `smtp_settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sticky_notes`
+--
+
+DROP TABLE IF EXISTS `sticky_notes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sticky_notes` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned NOT NULL,
+  `note_text` mediumtext COLLATE utf8mb3_unicode_ci NOT NULL,
+  `colour` enum('blue','yellow','red','gray','purple','green') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'blue',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sticky_notes_user_id_foreign` (`user_id`),
+  CONSTRAINT `sticky_notes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sticky_notes`
+--
+
+LOCK TABLES `sticky_notes` WRITE;
+/*!40000 ALTER TABLE `sticky_notes` DISABLE KEYS */;
+INSERT INTO `sticky_notes` VALUES (1,9,'Work on Forgot Password','yellow','2024-04-10 06:21:28','2024-04-10 06:21:28'),(2,9,'Meeting with supervisor at 2 PM on wednesday','blue','2024-04-10 06:21:49','2024-04-10 06:21:49'),(3,3,'Inform students of the new Documentation format','yellow','2024-04-10 06:22:13','2024-04-10 06:22:13');
+/*!40000 ALTER TABLE `sticky_notes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `students`
+--
+
+DROP TABLE IF EXISTS `students`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `students` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned NOT NULL,
+  `supervisor_id` int unsigned DEFAULT NULL,
+  `unassigned` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `students_user_id_index` (`user_id`),
+  KEY `students_supervisor_id_index` (`supervisor_id`),
+  CONSTRAINT `students_supervisor_id_foreign` FOREIGN KEY (`supervisor_id`) REFERENCES `supervisors` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `students_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `students`
+--
+
+LOCK TABLES `students` WRITE;
+/*!40000 ALTER TABLE `students` DISABLE KEYS */;
+INSERT INTO `students` VALUES (1,8,1,NULL,'2024-04-09 12:58:20','2024-04-09 13:03:18'),(2,9,2,NULL,'2024-04-09 12:58:20','2024-04-09 13:03:24'),(3,11,2,NULL,'2024-04-09 12:58:21','2024-04-09 13:03:29'),(4,12,1,NULL,'2024-04-09 12:58:21','2024-04-09 13:03:41'),(5,13,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(6,14,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(7,15,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(8,16,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(9,17,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(10,18,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(11,19,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(12,20,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(13,21,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(14,22,8,NULL,'2024-04-09 12:58:21','2024-04-10 08:16:08'),(15,23,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(16,24,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(17,25,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(18,26,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(19,27,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(20,28,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(21,29,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(22,30,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(23,31,NULL,NULL,'2024-04-09 12:58:21','2024-04-09 12:58:21'),(24,32,8,NULL,'2024-04-10 08:13:15','2024-04-10 08:15:12');
+/*!40000 ALTER TABLE `students` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `supervisors`
+--
+
+DROP TABLE IF EXISTS `supervisors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `supervisors` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `supervisors_user_id_index` (`user_id`),
+  CONSTRAINT `supervisors_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `supervisors`
+--
+
+LOCK TABLES `supervisors` WRITE;
+/*!40000 ALTER TABLE `supervisors` DISABLE KEYS */;
+INSERT INTO `supervisors` VALUES (1,2,'2024-04-09 12:58:20','2024-04-09 12:58:20'),(2,3,'2024-04-09 12:58:20','2024-04-09 12:58:20'),(3,4,'2024-04-09 12:58:20','2024-04-09 12:58:20'),(4,5,'2024-04-09 12:58:20','2024-04-09 12:58:20'),(5,6,'2024-04-09 12:58:20','2024-04-09 12:58:20'),(6,7,'2024-04-09 12:58:20','2024-04-09 12:58:20'),(7,10,'2024-04-09 12:58:20','2024-04-09 12:58:20'),(8,33,'2024-04-10 08:14:39','2024-04-10 08:14:39');
+/*!40000 ALTER TABLE `supervisors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `task_category`
+--
+
+DROP TABLE IF EXISTS `task_category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `task_category` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `task_category`
+--
+
+LOCK TABLES `task_category` WRITE;
+/*!40000 ALTER TABLE `task_category` DISABLE KEYS */;
+/*!40000 ALTER TABLE `task_category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `taskboard_columns`
+--
+
+DROP TABLE IF EXISTS `taskboard_columns`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `taskboard_columns` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `column_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `slug` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `label_color` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `priority` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `taskboard_columns_column_name_unique` (`column_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taskboard_columns`
+--
+
+LOCK TABLES `taskboard_columns` WRITE;
+/*!40000 ALTER TABLE `taskboard_columns` DISABLE KEYS */;
+/*!40000 ALTER TABLE `taskboard_columns` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tasks`
+--
+
+DROP TABLE IF EXISTS `tasks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tasks` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `heading` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `description` mediumtext COLLATE utf8mb3_unicode_ci NOT NULL,
+  `due_date` date NOT NULL,
+  `start_date` date DEFAULT NULL,
+  `user_id` int unsigned NOT NULL,
+  `project_id` int unsigned DEFAULT NULL,
+  `task_category_id` int unsigned DEFAULT NULL,
+  `priority` enum('low','medium','high') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'medium',
+  `status` enum('incomplete','completed') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'incomplete',
+  `board_column_id` int unsigned NOT NULL DEFAULT '1',
+  `column_priority` int NOT NULL,
+  `completed_on` datetime DEFAULT NULL,
+  `created_by` int unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `milestone_id` int unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tasks_user_id_index` (`user_id`),
+  KEY `tasks_project_id_index` (`project_id`),
+  KEY `tasks_board_column_id_index` (`board_column_id`),
+  KEY `tasks_task_category_id_index` (`task_category_id`),
+  KEY `tasks_created_by_index` (`created_by`),
+  KEY `tasks_milestone_id_index` (`milestone_id`),
+  CONSTRAINT `tasks_board_column_id_foreign` FOREIGN KEY (`board_column_id`) REFERENCES `taskboard_columns` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tasks_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tasks_milestone_id_foreign` FOREIGN KEY (`milestone_id`) REFERENCES `project_milestones` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tasks_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tasks_task_category_id_foreign` FOREIGN KEY (`task_category_id`) REFERENCES `task_category` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tasks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tasks`
+--
+
+LOCK TABLES `tasks` WRITE;
+/*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `taxes`
+--
+
+DROP TABLE IF EXISTS `taxes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `taxes` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `tax_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `rate_percent` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taxes`
+--
+
+LOCK TABLES `taxes` WRITE;
+/*!40000 ALTER TABLE `taxes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `taxes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `theme_settings`
+--
+
+DROP TABLE IF EXISTS `theme_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `theme_settings` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `panel` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `header_color` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `sidebar_color` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `sidebar_text_color` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `link_color` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT '#ffffff',
+  `user_css` longtext COLLATE utf8mb3_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `theme_settings`
+--
+
+LOCK TABLES `theme_settings` WRITE;
+/*!40000 ALTER TABLE `theme_settings` DISABLE KEYS */;
+INSERT INTO `theme_settings` VALUES (1,'admin','#ed4040','#292929','#cbcbcb','#ffffff',NULL,'2019-12-10 02:49:11','2019-12-10 02:49:11'),(2,'project_admin','#5475ed','#292929','#cbcbcb','#ffffff',NULL,'2019-12-10 02:49:12','2019-12-10 02:49:12'),(3,'employee','#f7c80c','#292929','#cbcbcb','#ffffff',NULL,'2019-12-10 02:49:12','2019-12-10 02:49:12'),(4,'client','#00c292','#292929','#cbcbcb','#ffffff',NULL,'2019-12-10 02:49:12','2019-12-10 02:49:12');
+/*!40000 ALTER TABLE `theme_settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ticket_channels`
+--
+
+DROP TABLE IF EXISTS `ticket_channels`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ticket_channels` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `channel_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ticket_channels_channel_name_unique` (`channel_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ticket_channels`
+--
+
+LOCK TABLES `ticket_channels` WRITE;
+/*!40000 ALTER TABLE `ticket_channels` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ticket_channels` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ticket_replies`
+--
+
+DROP TABLE IF EXISTS `ticket_replies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ticket_replies` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `ticket_id` int unsigned NOT NULL,
+  `user_id` int unsigned NOT NULL,
+  `message` mediumtext COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ticket_replies_ticket_id_index` (`ticket_id`),
+  KEY `ticket_replies_user_id_index` (`user_id`),
+  CONSTRAINT `ticket_replies_ticket_id_foreign` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `ticket_replies_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ticket_replies`
+--
+
+LOCK TABLES `ticket_replies` WRITE;
+/*!40000 ALTER TABLE `ticket_replies` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ticket_replies` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ticket_types`
+--
+
+DROP TABLE IF EXISTS `ticket_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ticket_types` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ticket_types_type_unique` (`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ticket_types`
+--
+
+LOCK TABLES `ticket_types` WRITE;
+/*!40000 ALTER TABLE `ticket_types` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ticket_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tickets`
+--
+
+DROP TABLE IF EXISTS `tickets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tickets` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned NOT NULL,
+  `subject` text COLLATE utf8mb3_unicode_ci NOT NULL,
+  `status` enum('open','pending','resolved','closed') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'open',
+  `priority` enum('low','medium','high','urgent') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'medium',
+  `agent_id` int unsigned DEFAULT NULL,
+  `channel_id` int unsigned DEFAULT NULL,
+  `type_id` int unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tickets_user_id_index` (`user_id`),
+  KEY `tickets_agent_id_index` (`agent_id`),
+  KEY `tickets_channel_id_index` (`channel_id`),
+  KEY `tickets_type_id_index` (`type_id`),
+  CONSTRAINT `tickets_agent_id_foreign` FOREIGN KEY (`agent_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `tickets_channel_id_foreign` FOREIGN KEY (`channel_id`) REFERENCES `ticket_channels` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `tickets_type_id_foreign` FOREIGN KEY (`type_id`) REFERENCES `ticket_types` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `tickets_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tickets`
+--
+
+LOCK TABLES `tickets` WRITE;
+/*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `title_reviews`
+--
+
+DROP TABLE IF EXISTS `title_reviews`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `title_reviews` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title_id` int unsigned NOT NULL,
+  `user_id` int unsigned NOT NULL,
+  `review` varchar(1200) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `title_reviews_user_id_index` (`user_id`),
+  KEY `title_reviews_title_id_index` (`title_id`),
+  CONSTRAINT `title_reviews_title_id_foreign` FOREIGN KEY (`title_id`) REFERENCES `titles` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `title_reviews_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `title_reviews`
+--
+
+LOCK TABLES `title_reviews` WRITE;
+/*!40000 ALTER TABLE `title_reviews` DISABLE KEYS */;
+INSERT INTO `title_reviews` VALUES (1,2,3,'Please add more subareas','2024-04-10 06:15:44','2024-04-10 06:15:44'),(2,2,9,'Okay Sir','2024-04-10 06:15:50','2024-04-10 06:15:50'),(3,3,33,'Please add more subareas and narrative','2024-04-10 08:28:15','2024-04-10 08:28:15'),(4,3,32,'This is updated as requested','2024-04-10 08:29:18','2024-04-10 08:29:18');
+/*!40000 ALTER TABLE `title_reviews` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `titles`
+--
+
+DROP TABLE IF EXISTS `titles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `titles` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `proposal_id` int unsigned NOT NULL,
+  `title` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `status` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `titles_proposal_id_index` (`proposal_id`),
+  CONSTRAINT `titles_proposal_id_foreign` FOREIGN KEY (`proposal_id`) REFERENCES `proposals` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `titles`
+--
+
+LOCK TABLES `titles` WRITE;
+/*!40000 ALTER TABLE `titles` DISABLE KEYS */;
+INSERT INTO `titles` VALUES (1,1,'This is a test','0','2024-04-09 19:48:34','2024-04-09 19:48:34'),(2,2,'Progress Monitoring system and Project Management System','1','2024-04-10 06:15:21','2024-04-10 06:16:32'),(3,3,'Progress monitoring system and Management','1','2024-04-10 08:27:06','2024-04-10 08:30:11');
+/*!40000 ALTER TABLE `titles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `universal_search`
+--
+
+DROP TABLE IF EXISTS `universal_search`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `universal_search` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `searchable_id` int NOT NULL,
+  `title` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `route_name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `universal_search`
+--
+
+LOCK TABLES `universal_search` WRITE;
+/*!40000 ALTER TABLE `universal_search` DISABLE KEYS */;
+/*!40000 ALTER TABLE `universal_search` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `faculty_id` int unsigned DEFAULT NULL,
+  `course_id` int unsigned DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `admission_staff_no` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `gender` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `mobile` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `locale` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'en',
+  `mime` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `year` int DEFAULT NULL,
+  `passrec` tinyint NOT NULL DEFAULT '1',
+  `status` tinyint NOT NULL DEFAULT '0',
+  `password` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`),
+  UNIQUE KEY `users_admission_staff_no_unique` (`admission_staff_no`),
+  KEY `users_faculty_id_index` (`faculty_id`),
+  KEY `users_course_id_index` (`course_id`),
+  CONSTRAINT `users_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `users_faculty_id_foreign` FOREIGN KEY (`faculty_id`) REFERENCES `faculties` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,NULL,NULL,'Super Admin','admin@example.com','admin@example.com','male',NULL,'0713676655','en','png','0713676655',2014,1,1,'$2y$10$B.vtpjo.pqlpLpmNAoBCjupkrAJ5dCsqw4f50xpkZTZZUnPQcx0NW','fmcKgGpZcbH6ZpHuCECLibuk44dj0hJ460KsY6sLmhZggelGqC7lg6R4nFHF',NULL,NULL),(2,1,NULL,'Gladys Purdy','PF-1362/2024','mozelle45@example.org',NULL,NULL,'+254713676186','en','png',NULL,NULL,0,1,'$2y$10$xFu5I2AQl5z9XpxXTZFQ9eJztUgIQHWCbFT7FATFsNnuT5fxc32Lu','JFEzr5ihVa','2024-04-09 12:58:20','2024-04-09 12:58:20'),(3,11,NULL,'Prof. Eula Champlin II','PF-5382/2024','pweissnat@example.org',NULL,NULL,'+254713676302','en','png',NULL,NULL,1,1,'$2y$10$OoUXIgn68i0qEJwTSf7mxuRywJV3OEKwbKG5I3TXtskVSSJFL44JS','6TOIhIf0TnDvVYGn2pu43MAzBKXDRGBdAokh7glVRw3gmbaDuznv2D9PP8Yt','2024-04-09 12:58:20','2024-04-10 06:04:12'),(4,4,NULL,'Lawrence Rosenbaum','PF-903/2024','riley15@example.net',NULL,NULL,'+254713676701','en','png',NULL,NULL,0,1,'$2y$10$hAi8Nyn9QG5O3nkR0eOnEe2Eqq0uF3JsLsmemn84f.imcAmGjjjEq','38Twe19bNp','2024-04-09 12:58:20','2024-04-09 12:58:20'),(5,7,NULL,'Sydnee Kuhic PhD','PF-9235/2024','jmclaughlin@example.net',NULL,NULL,'+254713676212','en','png',NULL,NULL,0,1,'$2y$10$18YnlM6/EGhg6WAsv5FAHebVvcwhGOFs3tw0m/SfmBytAdDTSqVhO','Z9dSQ1shaL','2024-04-09 12:58:20','2024-04-09 12:58:20'),(6,9,NULL,'Prof. Carole Rempel','PF-2746/2024','jamir24@example.com',NULL,NULL,'+254713676774','en','png',NULL,NULL,0,1,'$2y$10$extu.FwnGUdbK8IYQPDwm.ZDLKhAIAkb6a5v7iocKm.B8ZRHjzAzC','2qldz4wBhB','2024-04-09 12:58:20','2024-04-09 12:58:20'),(7,9,NULL,'Miss Gretchen Kilback Jr.','PF-5080/2024','eulah.nitzsche@example.net',NULL,NULL,'+254713676757','en','png',NULL,NULL,0,1,'$2y$10$UvMXTj1zIyS4/4HpmGhQCOaojbD6GxlHTqg70jKfdKYtFcNwGQ8Ru','eGcFLuN8ub','2024-04-09 12:58:20','2024-04-09 12:58:20'),(8,8,32,'Jovanny Kihn','CIT-223-3897/2024','emmett12@example.org',NULL,NULL,'+254713676438','en','png',NULL,NULL,1,1,'$2y$10$npXPKx6m/qJ7CzcI6DcYEuHyNOM785oNm/iDWULQ7rpo64vAPmuJm','3l8kGEFyc4','2024-04-09 12:58:20','2024-04-09 18:52:31'),(9,10,38,'Courtney Corkery','CIT-223-8141/2024','feeney.karlie@example.org',NULL,NULL,'+254713676482','en','png',NULL,NULL,1,1,'$2y$10$SCL4ET4bFi/bhaZ2OkgKoOZtImpBGbLajwzwSKIF8mZpUBJo3VEW6','5MowCzSwePOm40GmU7GrRPRCCjeMce3BhXZ98h1xBuyCaMzEeucE083PAoBo','2024-04-09 12:58:20','2024-04-10 05:51:51'),(10,7,NULL,'Delaney Mohr','PF-8404/2024','koss.elouise@example.net',NULL,NULL,'+254713676836','en','png',NULL,NULL,0,1,'$2y$10$m/4aYoSn0hx4c/WqnjyepOzUX43aE8G9/MMW6QazbnEsuygOpdqRS','fKdQ7GK14I','2024-04-09 12:58:20','2024-04-09 12:58:20'),(11,7,28,'Mr. Jamey Larkin Jr.','CIT-223-5736/2024','conner09@example.com',NULL,NULL,'+254713676344','en','png',NULL,NULL,0,1,'$2y$10$3FFyfn8x419niFSNynYm6uINgkKtlnbElg13S5hKS7kt0qAl5w0uG','3aVOT96VBp','2024-04-09 12:58:20','2024-04-09 12:58:20'),(12,11,39,'Brooke Beier','CIT-223-7711/2024','ostanton@example.org',NULL,NULL,'+254713676814','en','png',NULL,NULL,0,1,'$2y$10$XZVydGInYGTloQiLbNRZOOigyLjAi6lDKabwws1GiMpMfMwdGiNpS','6qQiiqPWwf','2024-04-09 12:58:20','2024-04-09 12:58:21'),(13,5,21,'Ms. Jannie Welch DDS','CIT-223-9698/2024','hettinger.alvina@example.net',NULL,NULL,'+254713676116','en','png',NULL,NULL,0,1,'$2y$10$9OC4xCApnYO/Ld6DGLgzcefPYWncVYKKOXz59Iougxi.LuyHM4Dlu','G0rmN7xBzz','2024-04-09 12:58:20','2024-04-09 12:58:21'),(14,5,23,'Mr. Maximus Fay Jr.','CIT-223-9169/2024','russel.jennyfer@example.net',NULL,NULL,'+254713676483','en','png',NULL,NULL,0,1,'$2y$10$SkdkYfusaw.QSYcFkqzQAuMvxAouHMg3lNbx2jqlyOEIM1TO6OmMq','xDJxe81b52','2024-04-09 12:58:20','2024-04-09 12:58:21'),(15,2,13,'Prof. Neal Abernathy','CIT-223-6353/2024','medhurst.lauretta@example.net',NULL,NULL,'+254713676471','en','png',NULL,NULL,0,1,'$2y$10$NYC8ioy5ngH4qP3w4utx8e5k46HLuXGkO7vkvCBtDp0xBlt/CF..2','17WVbA5Eo9','2024-04-09 12:58:20','2024-04-09 12:58:21'),(16,3,15,'Ms. Katrina Gottlieb Jr.','CIT-223-904/2024','isabella91@example.net',NULL,NULL,'+254713676675','en','png',NULL,NULL,0,1,'$2y$10$le6LL75bGqPOwmGGpMxM5.TEnm83RFsZqHi46tNDh0/HrsA83dzuS','Xxs2TYsTGz','2024-04-09 12:58:20','2024-04-09 12:58:21'),(17,11,41,'Rosetta Donnelly','CIT-223-8499/2024','mills.tomas@example.com',NULL,NULL,'+254713676714','en','png',NULL,NULL,0,1,'$2y$10$jorkubyx8yE5iyjhAtPAvuPrCh/Yhg/dNU8K8UpAxYcX5GhIwMimy','ygzidAPQ9Z','2024-04-09 12:58:20','2024-04-09 12:58:21'),(18,9,34,'Crystel Jacobson','CIT-223-8305/2024','hortense.hyatt@example.com',NULL,NULL,'+254713676623','en','png',NULL,NULL,0,1,'$2y$10$4MzFi9g.8wiictNq220XT.oYf/becw8J8e7YC7kLjOrjxcCkg0iFa','pjgdebBTI9','2024-04-09 12:58:20','2024-04-09 12:58:21'),(19,7,27,'Dr. Audreanne Beatty DVM','CIT-223-9048/2024','benjamin58@example.org',NULL,NULL,'+254713676146','en','png',NULL,NULL,0,1,'$2y$10$M1zkpxgh4Hu6t6.F4k6ZTuZPZ0oUZsTknMu02tygzWB.M8wpt98jS','XGCflwxNoO','2024-04-09 12:58:20','2024-04-09 12:58:21'),(20,6,25,'Pete Schuster','CIT-223-1679/2024','stephon.russel@example.com',NULL,NULL,'+254713676114','en','png',NULL,NULL,0,1,'$2y$10$MMXvAEc2DxQQTM/riYt/vOa6UY.5OiEmp6tWH3FU1AfPEfnMXLHia','f7HFzi8AcO','2024-04-09 12:58:20','2024-04-09 12:58:21'),(21,8,30,'Caleigh Herzog','CIT-223-9256/2024','xkihn@example.com',NULL,NULL,'+254713676147','en','png',NULL,NULL,0,1,'$2y$10$YEJue0awXLNVrvrcLprnz.Ws.avci/uY3vINJGoisuouUheXl2fli','LkXtSxJPF7','2024-04-09 12:58:20','2024-04-09 12:58:21'),(22,1,4,'Magnus Zemlak','CIT-223-5204/2024','rbahringer@example.org',NULL,NULL,'+254713676225','en','png',NULL,NULL,0,1,'$2y$10$DJNrRP138XIaWjCemWIA..UOL4Wq.howuCWPHj4LRXW9NneCXMKbu','5c9u5lonmK','2024-04-09 12:58:20','2024-04-09 12:58:21'),(23,5,23,'Jaida Boehm','CIT-223-2906/2024','wendell.schoen@example.org',NULL,NULL,'+254713676822','en','png',NULL,NULL,0,1,'$2y$10$TblUIsi/mIvPB3JdxSk57eDVtBQUxcI0DSErcbAlYOMzJU7EeaeWC','ueKsUm8ZwH','2024-04-09 12:58:20','2024-04-09 12:58:21'),(24,3,16,'Brendon Flatley','CIT-223-4817/2024','laura63@example.net',NULL,NULL,'+254713676144','en','png',NULL,NULL,0,1,'$2y$10$c5H3MwssU5SxaLjo9rZIQenbCemYvSj8JviLF5y7CRpLzkNCZOP0e','Pwx3AExqyL','2024-04-09 12:58:20','2024-04-09 12:58:21'),(25,6,24,'Wilford Huel','CIT-223-598/2024','robel.berniece@example.org',NULL,NULL,'+254713676742','en','png',NULL,NULL,0,1,'$2y$10$5gJ2VMfLFVjhwsEGVnnBwuMC2FJ5fn3l62.xCqhX9FpBzZHA2rXLC','NoWYgieAQz','2024-04-09 12:58:20','2024-04-09 12:58:21'),(26,11,40,'Dr. Savannah Leuschke Jr.','CIT-223-5778/2024','hgutkowski@example.net',NULL,NULL,'+254713676251','en','png',NULL,NULL,0,1,'$2y$10$1fo8cZRkHNk24a6jrPTSe.5MGhwrXFiYbLwIeTfruDgr3N3RFEQyC','j2JirKY6NC','2024-04-09 12:58:20','2024-04-09 12:58:21'),(27,4,19,'Thelma Maggio','CIT-223-7847/2024','dsauer@example.com',NULL,NULL,'+254713676681','en','png',NULL,NULL,0,1,'$2y$10$OWdcIrVsa8LzDpABtb5l0OQjnc8jzATKhwfTPg3s4K0iG0RTxW0uy','8sfsWs5XP1','2024-04-09 12:58:20','2024-04-09 12:58:21'),(28,9,35,'Burdette Tillman','CIT-223-1163/2024','catharine.metz@example.net',NULL,NULL,'+254713676177','en','png',NULL,NULL,0,1,'$2y$10$uN.4bnM/CwBh0058TqDqZOgzMscaH7XSiAPJIaFqxLZlWXtED2lOC','U7nmHny2fR','2024-04-09 12:58:20','2024-04-09 12:58:21'),(29,7,28,'Eduardo Witting','CIT-223-309/2024','gilda.bartell@example.net',NULL,NULL,'+254713676820','en','png',NULL,NULL,0,1,'$2y$10$e6It0VGtsgaTGLh1QwxlWuMNcJ0Z8tv.KP/mJN.4K1R/p8LSQPkse','p6PYK1bC0V','2024-04-09 12:58:20','2024-04-09 12:58:21'),(30,3,17,'Prof. Terrance Stoltenberg V','CIT-223-3936/2024','morgan.bruen@example.com',NULL,NULL,'+254713676199','en','png',NULL,NULL,0,1,'$2y$10$Mbg4hBeVdlZwBj3Q2pl6F.1aauftOpio.BieJ6PWbMG10PQsDnYIC','jRbUrXma7T','2024-04-09 12:58:20','2024-04-09 12:58:21'),(31,3,15,'Alexie Bosco','CIT-223-3918/2024','guy79@example.org',NULL,NULL,'+254713676968','en','png',NULL,NULL,0,1,'$2y$10$.YjukBXVss4gl4GRyyE9rudfFcRhQAry4bCqSf6Kasp1kABp8onsW','10OV3U6V3Z','2024-04-09 12:58:20','2024-04-09 12:58:21'),(32,1,8,'Roy Malaba','CIT-223-123/2024','roymalaba@gmail.com','Male',NULL,NULL,'en',NULL,'+254713676654',4,1,1,'$2y$10$myT7l1l9Fr1DIOHvtNLVBu2lQ6k1m.FoO3WytiA750ZjGLVTMXNSO',NULL,'2024-04-10 08:13:15','2024-04-10 08:21:35'),(33,1,NULL,'Eve Buck','PF-1289/2024','cotol@mailinator.com','Male',NULL,NULL,'en',NULL,'+1 (886) 848-4124',NULL,1,1,'$2y$10$AWNooUO5nVPbpQ/iQe1VruMkHC4TPMuCF8oUOQlABicmqnMN9.uiC','Ou7skP25M3bZwl6wT9jNt1r44qEr1a2L7ySW9bzBP0DF4Zc5VGqrmuEnsHkj','2024-04-10 08:14:39','2024-04-10 08:23:06');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users_chat`
+--
+
+DROP TABLE IF EXISTS `users_chat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users_chat` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_one` int unsigned NOT NULL,
+  `user_id` int unsigned NOT NULL,
+  `message` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `from` int unsigned DEFAULT NULL,
+  `to` int unsigned DEFAULT NULL,
+  `message_seen` enum('yes','no') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'no',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `users_chat_user_one_foreign` (`user_one`),
+  KEY `users_chat_user_id_foreign` (`user_id`),
+  KEY `users_chat_from_foreign` (`from`),
+  KEY `users_chat_to_foreign` (`to`),
+  CONSTRAINT `users_chat_from_foreign` FOREIGN KEY (`from`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `users_chat_to_foreign` FOREIGN KEY (`to`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `users_chat_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `users_chat_user_one_foreign` FOREIGN KEY (`user_one`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users_chat`
+--
+
+LOCK TABLES `users_chat` WRITE;
+/*!40000 ALTER TABLE `users_chat` DISABLE KEYS */;
+INSERT INTO `users_chat` VALUES (1,9,3,'Hello Sir',9,3,'yes','2024-04-10 06:17:18','2024-04-10 06:59:14'),(2,3,9,'Hello Courtney, How may I help you?',3,9,'yes','2024-04-10 06:17:45','2024-04-10 06:25:34'),(3,32,33,'Hello Sir',32,33,'yes','2024-04-10 08:23:33','2024-04-10 08:48:49'),(4,33,32,'Hey Roy',33,32,'yes','2024-04-10 08:23:57','2024-04-10 08:25:21'),(5,32,33,'What time can we meet?',32,33,'yes','2024-04-10 08:24:21','2024-04-10 08:48:49'),(6,33,32,'Lets meet at 2 PM , please fill in the tilte before the meeting',33,32,'yes','2024-04-10 08:24:43','2024-04-10 08:25:21'),(7,32,33,'Okay',32,33,'yes','2024-04-10 08:24:52','2024-04-10 08:48:49'),(8,33,32,'Your project is now completed, wait for the final results',33,32,'no','2024-04-10 08:48:44','2024-04-10 08:48:44');
+/*!40000 ALTER TABLE `users_chat` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-04-11 21:24:07
